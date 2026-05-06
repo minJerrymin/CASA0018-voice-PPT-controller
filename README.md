@@ -68,40 +68,6 @@ The final model uses:
 - 1-second audio window
 - 250 ms window increase for better live recognition
 
----
-
-## Development Process
-
-1. Created an Edge Impulse project.
-2. Collected labelled audio samples for the three commands, background noise, and unknown speech.
-3. Trained a keyword spotting model using MFCC features and a 1D CNN.
-4. Tested the model using Edge Impulse validation and test sets.
-5. Deployed the model as an Arduino library.
-6. Modified the Arduino continuous microphone example to output serial commands.
-7. Wrote a Python script to convert serial commands into PowerPoint keyboard controls.
-8. Added Arduino-side post-processing to reduce false triggers during continuous listening.
-
----
-
-## Key Challenge
-
-The main challenge was that live performance was different from offline test accuracy.
-
-The phrase `next page` could be split across adjacent 1-second audio windows. When this happened, part of the phrase was sometimes misclassified as `go back`.
-
-To improve this, I reduced the window increase to **250 ms** and added Arduino-side post-processing. In particular, the system delays `go back` briefly so that a following `next page` prediction can override it if needed.
-
-```mermaid
-flowchart TD
-    A[Audio window classified] --> B{Command detected?}
-    B -->|next page| C[Send CMD:NEXT]
-    B -->|exit| D[Send CMD:ESC]
-    B -->|go back| E[Hold as pending back]
-    E --> F{Next page appears soon?}
-    F -->|Yes| C
-    F -->|No| G[Send CMD:BACK]
-    B -->|noise / unknown| H[No action]
-```
 
 ---
 
@@ -151,14 +117,6 @@ python ppt_voice_controller.py
    - `go back`
    - `exit`
 
----
-
-## Limitations
-
-- The Python script must be running on the computer.
-- The system depends on the PowerPoint window being active.
-- Performance is affected by microphone distance, speaking speed, and background noise.
-- The model was trained on a limited dataset, so it may not generalise perfectly to all speakers.
 
 ---
 
@@ -166,6 +124,3 @@ python ppt_voice_controller.py
 
 Add Edge Impulse project link here.
 
-## GitHub Repository
-
-Add GitHub repository link here.
