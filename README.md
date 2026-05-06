@@ -107,3 +107,8 @@ python ppt_voice_controller.py
 ## Edge Impulse Project
 https://studio.edgeimpulse.com/studio/983182
 
+---
+## Video presentation
+
+
+
