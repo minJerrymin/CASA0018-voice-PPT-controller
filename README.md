@@ -1,8 +1,8 @@
-# Offline TinyML Voice Controller for PowerPoint
+# TinyML Voice Controller for PowerPoint
 
 ## Project Overview
 
-This project is a CASA0018 embedded AI prototype that uses an **Arduino Nano 33 BLE Sense Rev2** and **Edge Impulse** to control PowerPoint with voice commands.
+This project is a CASA0018 embedded AI prototype that uses an **Arduino Nano 33 BLE Sense** and **Edge Impulse** to control PowerPoint with voice commands.
 
 The Arduino uses its onboard microphone to listen continuously, runs a TinyML keyword spotting model locally, and sends simple serial commands to a Python script on the computer. The Python script then uses `pyautogui` to control PowerPoint.
 
