@@ -31,22 +31,6 @@ flowchart LR
 
 ---
 
-## Main Components
-
-- **Arduino Nano 33 BLE Sense Rev2**  
-  Captures audio and runs the TinyML model locally.
-
-- **Edge Impulse**  
-  Used to collect data, train the keyword spotting model, and export the Arduino library.
-
-- **Python script**  
-  Reads serial commands from Arduino and maps them to keyboard actions.
-
-- **PowerPoint**  
-  Responds to the simulated keyboard inputs.
-
----
-
 ## Model Design
 
 The model was trained in Edge Impulse using five classes:
@@ -103,7 +87,7 @@ voice command → Arduino inference → serial command → Python → PowerPoint
 
 ## Demo Use
 
-1. Upload the Arduino code to the Nano 33 BLE Sense Rev2.
+1. Upload the Arduino code to the Nano 33 BLE Sense .
 2. Close Arduino Serial Monitor.
 3. Run the Python script:
 
@@ -121,6 +105,5 @@ python ppt_voice_controller.py
 ---
 
 ## Edge Impulse Project
-
-Add Edge Impulse project link here.
+https://studio.edgeimpulse.com/studio/983182
 
