@@ -109,7 +109,7 @@ https://studio.edgeimpulse.com/studio/983182
 
 ---
 ## Video presentation
-[Watch demo video](./demo.mp4)
+[Watch demo video](./demovideo.mp4)
 
 
 
